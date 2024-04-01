@@ -7,12 +7,12 @@ import (
 )
 
 type Message struct {
-	Id            int64     json:"id"
-	PublicKeyFrom string    json:"public_key_from"
-	PublicKeyTo   string    json:"public_key_to"
-	Message       []byte    json:"message"
-	CreatedAt     time.Time json:"created_at"
-	UpdatedAt     time.Time json:"updated_at"
+	Id            int64     `json:"id"`
+	PublicKeyFrom string    `json:"public_key_from"`
+	PublicKeyTo   string    `json:"public_key_to"`
+	Message       []byte    `json:"message"`
+	CreatedAt     time.Time `json:"created_at"`
+	UpdatedAt     time.Time `json:"updated_at"`
 }
 
 type MessageRepository struct {
