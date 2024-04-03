@@ -1,14 +1,14 @@
 package api
 
 import (
-	"chat_server/internal/api/handlers"
-	"chat_server/internal/api/services"
-	"chat_server/internal/config"
-	"chat_server/pkg/utils"
 	"context"
 	"fmt"
 	"github.com/go-chi/chi"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/penguin0106/chat_server/internal/api/handlers"
+	"github.com/penguin0106/chat_server/internal/api/services"
+	"github.com/penguin0106/chat_server/internal/config"
+	"github.com/penguin0106/chat_server/pkg/utils"
 	"github.com/rs/cors"
 	"go.uber.org/zap"
 	"net/http"
@@ -48,7 +48,7 @@ func (a *AppStruct) RunApp(c *config.Config, log *zap.Logger) {
 	router.Post("/v1/messages", messageHandler.CreateMessage)
 	router.Get("/v1/messages/{publicKey}", messageHandler.GetMessagesByPublicKey)
 
-	log.Info(fmt.Sprintf("API server is listening on http://%s", c.RunApp))
+	log.Info(fmt.Sprintf("API server is listening on https://%s", c.RunApp))
 	if err := http.ListenAndServe(c.RunApp, router); err != nil {
 		log.Error(err.Error())
 	}

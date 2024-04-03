@@ -1,6 +1,6 @@
 package dto
 
-import "chat_server/internal/api/repositories"
+import "github.com/penguin0106/chat_server/internal/api/repositories"
 
 type CreateMessageDTO struct {
 	From    string `json:"from"`

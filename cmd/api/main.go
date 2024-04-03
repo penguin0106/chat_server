@@ -1,8 +1,8 @@
 package main
 
 import (
-	"chat_server/internal/api"
-	"chat_server/internal/config"
+	"github.com/penguin0106/chat_server/internal/api"
+	"github.com/penguin0106/chat_server/internal/config"
 	"go.uber.org/zap"
 )
 
@@ -13,7 +13,9 @@ func main() {
 		panic(err)
 	}
 
-	defer log.Sync()
+	defer func(log *zap.Logger) {
+		_ = log.Sync()
+	}(log)
 
 	c := config.DefaultConfig()
 	app := api.AppStruct{}

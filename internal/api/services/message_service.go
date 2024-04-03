@@ -1,10 +1,10 @@
 package services
 
 import (
-	"chat_server/internal/api/dto"
-	"chat_server/internal/api/repositories"
 	"context"
 	"github.com/jackc/pgx/v4/pgxpool"
+	"github.com/penguin0106/chat_server/internal/api/dto"
+	"github.com/penguin0106/chat_server/internal/api/repositories"
 )
 
 type MessageService struct {

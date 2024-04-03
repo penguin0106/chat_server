@@ -1,4 +1,4 @@
-module chat_server
+module github.com/penguin0106/chat_server
 
 go 1.20
 

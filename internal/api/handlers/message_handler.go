@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"chat_server/internal/api/dto"
-	"chat_server/internal/api/services"
 	"encoding/json"
 	"github.com/go-chi/chi"
+	"github.com/penguin0106/chat_server/internal/api/dto"
+	"github.com/penguin0106/chat_server/internal/api/services"
 	"io"
 	"net/http"
 	"strconv"
@@ -52,7 +52,10 @@ func (h *MessageHandler) GetMessagesByPublicKey(w http.ResponseWriter, r *http.R
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(messages)
+	err = json.NewEncoder(w).Encode(messages)
+	if err != nil {
+		return
+	}
 }
 
 func (h *MessageHandler) CreateMessage(w http.ResponseWriter, r *http.Request) {
@@ -77,5 +80,8 @@ func (h *MessageHandler) CreateMessage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(id)
+	err = json.NewEncoder(w).Encode(id)
+	if err != nil {
+		return
+	}
 }

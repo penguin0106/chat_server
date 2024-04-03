@@ -37,7 +37,7 @@ offset $3;
 	}
 	defer rows.Close()
 
-	messages := []*Message{}
+	var messages []*Message
 	for rows.Next() {
 		message := &Message{}
 		err := rows.Scan(
